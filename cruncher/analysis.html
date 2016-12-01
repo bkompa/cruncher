@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="UTF-8">
+        <title>Cruncher</title>
+        <link rel="stylesheet" type="text/css" href="cruncher.css" />
+     	<script src="http://www.cs.unc.edu/Courses/comp426-f14/jquery-1.11.1.js"
+          type="text/javascript"></script>
+        <script src="analysis.js" type="text/javascript"></script>  
+        <script>function addPair(){
+        	$('#pairdiv').empty();
+			var box = `
+			 
+			  Pair: <input type="text" name="pair">
+			 `;
+			 var html=`<form action='pairs.php' name='pairsform' method="get" id='pairform' enctype="multipart/form-data">
+			 Group Name: <input type="text" id='groupname' name="groupname"><br>
+			 `;
+			 var num=Number(document.getElementById("numpairs").value);
+			 var box = `
+			 			  Pair: <input type="text" id='pairbox' name="pair">
+			 			  <br>
+			 `;
+			 var boxes="";
+			 var i;
+			 for(i=0;i<num;i++){
+			 	boxes+=box;
+			 }
+			 var submitbutton=`<input type="submit" value="Submit" id='pairsubmit' name="submit"> </form>`;
+			 boxes+=submitbutton;
+			 html+=boxes;
+			 $('#pairdiv').empty();
+			 $('#pairdiv').append(html);
+			
+		}
+		
+			
+		
+			
+		</script>
+	</head>
+	
+	<body>
+		<div id='titleDiv'><p>Cruncher</p></div>
+		<div id='tabs'>
+		<ul class="tabrow">
+	    	<li class="selected" id='upload'>Upload Hands</li>
+	    	<li id='setgroups'>Set Groups</li>
+	    	<li id='analyze'>Analyze Leads</li>
+	    	<li id='history'>History</li>
+	    	<li id='inspect'>Inspect Data</li>
+			</ul>
+		</div>
+		<div id='tab-pane'>
+			<form action="upload.php" name ='fileform' method="get" id='fileform' enctype="multipart/form-data">
+			
+    		Select RBN to upload:
+    		<input type="file" name="file" id="fileToUpload">
+    		<input type="submit" value="upload" id='filesubmit' name="submit">
+    			
+    		</form>
+    		
+    		<a target="_blank" href='http://rpbridge.net/7l87.htm'>What is RBN?</a> <a href='http://rpbridge.net/z/bfcsetup.exe'>LIN converter program (Windows only)</a>
+    		
+			
+		</div>
+		
+
+	</body>
+	
+
+	
+</html>
